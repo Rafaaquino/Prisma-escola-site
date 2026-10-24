@@ -90,6 +90,20 @@ for (const page of pages.filter((p) => p.status === "ready")) {
   const h1 = (html.match(/<h1[\s>]/g) ?? []).length;
   if (h1 !== 1) bad(where, `${h1} tags <h1> (deve haver exatamente 1)`);
 
+  // bloco dentro de <p>: HTML inválido (o navegador fecha o <p> antes e o React acusa erro de hidratação #418 no site publicado)
+  {
+    const semScripts = html.replace(/<script[\s\S]*?<\/script>/g, "");
+    const achados = [];
+    for (const m of semScripts.matchAll(/<p[\s>]/g)) {
+      const abre = semScripts.indexOf(">", m.index) + 1;
+      const fecha = semScripts.indexOf("</p>", abre);
+      if (fecha === -1) continue;
+      const dentro = semScripts.slice(abre, fecha).match(/<(ul|ol|li|div|table|section|h[1-6]|p|form|blockquote|pre|header|footer|main|nav)[\s>]/);
+      if (dentro) achados.push(`<${dentro[1]}> dentro de <p> perto de "${semScripts.slice(abre, abre + 50).replace(/<[^>]+>/g, "").trim()}"`);
+    }
+    if (achados.length) bad(where, `${achados.length} bloco(s) dentro de <p> (erro de hidratação do React): ${achados.slice(0, 2).join("; ")}`);
+  }
+
   // imagens sem alt
   const imgs = html.match(/<img\b[^>]*>/g) ?? [];
   const noAlt = imgs.filter((i) => !/\balt=/.test(i));

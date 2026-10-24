@@ -465,3 +465,26 @@ button[disabled] {
 .footer-bottom .footer-wrapper {
   padding-bottom: 92px;
 }
+
+/* página 404: o "404" reaproveita os cartões coloridos dos números do template (knowledge-item) em tamanho menor */
+.not-found-thumb {
+  max-width: 420px;
+}
+
+.not-found-digit {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  font-family: "Jost", sans-serif;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+@media (max-width: 575px) {
+  .not-found-digit {
+    width: 84px;
+    height: 84px;
+    font-size: 44px;
+  }
+}

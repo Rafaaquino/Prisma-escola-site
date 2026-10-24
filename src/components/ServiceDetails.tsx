@@ -1,5 +1,12 @@
-import type { ReactNode } from "react";
+import { isValidElement, type ReactNode } from "react";
 import { Img } from "./Img";
+
+/** Texto do template (`<p class="pra">`). Se o conteúdo for um bloco (lista, div...), usa <div>: bloco dentro de <p> é HTML inválido,
+ *  o navegador fecha o <p> antes e o React acusa erro de hidratação (#418). O visual é o mesmo (a cor vem da classe `pra`). */
+function Text({ children }: { children: ReactNode }) {
+  const block = isValidElement(children) && typeof children.type === "string" && /^(ul|ol|div|table|section|h[1-6]|p|blockquote)$/.test(children.type);
+  return block ? <div className="pra mb-3">{children}</div> : <p className="pra">{children}</p>;
+}
 
 export interface DetailCard {
   /** Ícone do template (ex.: "aicon/car-icons1.webp"). */
@@ -89,7 +96,7 @@ export function ServiceDetails({ heroImg, heroAlt, title, paragraphs, bulletsLef
                     <h3 className="black mb-xl-3 mb-2" style={{ fontSize: "1.5rem" }}>
                       {c.title}
                     </h3>
-                    <p className="pra">{c.text}</p>
+                    <Text>{c.text}</Text>
                   </div>
                 </div>
               ))}
@@ -100,7 +107,7 @@ export function ServiceDetails({ heroImg, heroAlt, title, paragraphs, bulletsLef
           <>
             <div className="cont-box mb-30 wow fadeInUp" data-wow-delay=".4s">
               <h3 className="black mb-lg-3 mb-2">{details.title}</h3>
-              {details.text && <p className="pra">{details.text}</p>}
+              {details.text && <Text>{details.text}</Text>}
             </div>
             <div className="row align-items-center g-lg-4 g-3 wow fadeInUp" data-wow-delay=".5s">
               <div className="col-lg-6 col-md-6">

@@ -9,7 +9,8 @@ export default {
   appDirectory: "src",
   basename: base,
   ssr: false,
-  prerender: true,
+  // todas as rotas fixas + "/404" (a rota curinga `*` não tem caminho próprio para gerar, então pedimos o /404 à parte)
+  prerender: ({ getStaticPaths }) => [...getStaticPaths(), "/404"],
   // "lazy" (padrão) busca /__manifest em runtime, endpoint que o GitHub Pages não tem.
   routeDiscovery: { mode: "initial" },
 } satisfies Config;

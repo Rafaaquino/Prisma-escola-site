@@ -111,7 +111,7 @@ export default function Infraestrutura() {
         ]}
         details={{
           title: "Unidade Maracá",
-          text: "Av. Atos Tomás Ferracciu, 25 — Jd. Maracá.",
+          text: "Av. Atos Tomás Ferracciú, 25 — Jd. Maracá.",
           list: MARACA,
           img: "infra/patio-coberto-maraca.webp",
           imgAlt: "Pátio coberto da Unidade Maracá, com as bandeiras do Estado, do Brasil e da escola",

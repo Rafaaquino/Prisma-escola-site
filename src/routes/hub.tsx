@@ -41,7 +41,7 @@ const HUBS: Record<string, { description: string; items: HubItem[] }> = {
   "/unidades/": {
     description: "Conheça as duas unidades da Prisma Escola: Jd. Maracá e Jd. Lilah. Endereços, telefones, horários e visita virtual.",
     items: [
-      { to: "/unidade-1-jd-maraca/", title: "Unidade 1 — Jd. Maracá", text: "Av. Atos Tomás Ferracciu, 25 · (11) 5873-7688", icon: "car-icons1.webp" },
+      { to: "/unidade-1-jd-maraca/", title: "Unidade 1 — Jd. Maracá", text: "Av. Atos Tomás Ferracciú, 25 · (11) 5873-7688", icon: "car-icons1.webp" },
       { to: "/unidade-2-jd-lilah/", title: "Unidade 2 — Jd. Lilah", text: "Rua Costa Nova do Prado, 375 · (11) 5870-9906", icon: "car-icons2.webp" },
     ],
   },

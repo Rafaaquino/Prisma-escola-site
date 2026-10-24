@@ -25,7 +25,7 @@ export const UNITS: Unit[] = [
     id: "maraca",
     name: "Unidade Maracá",
     short: "Jd. Maracá",
-    address: "Av. Atos Tomás Ferracciu, 25",
+    address: "Av. Atos Tomás Ferracciú, 25",
     phone: "(11) 5873-7688",
     tel: "+551158737688",
     whatsapp: "https://wa.me/551158737688?text=Ol%C3%A1%2C%20desejo%20receber%20informa%C3%A7%C3%B5es%21",
@@ -70,9 +70,9 @@ export const HOURS = [
   { days: "Sexta", time: "8h às 16h45", schema: { dayOfWeek: ["Friday"], opens: "08:00", closes: "16:45" } },
 ];
 
-/** URLs encontradas no banco do WordPress (a mais citada de cada rede). Confirmar com a escola. */
+/** Redes sociais da escola. Facebook informado pela escola em 24/10/2026; Instagram é o mais citado no banco do WordPress (confirmar com a escola). */
 export const SOCIAL = {
-  facebook: "https://www.facebook.com/prismaescola1/",
+  facebook: "https://www.facebook.com/prismaescola/",
   instagram: "https://www.instagram.com/prismaescolaoficial",
 };
 

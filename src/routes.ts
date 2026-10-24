@@ -46,7 +46,8 @@ export default [
     ...pages
       .filter((p) => p.path !== "/")
       .map((p) => route(toSegment(p.path), CUSTOM[p.path] ?? "routes/placeholder.tsx", { id: `page${p.path.replace(/\//g, "-")}` })),
-    // Vira build/client/404.html no postbuild (é o que o GitHub Pages serve para URLs inexistentes).
-    route("404", "routes/not-found.tsx", { id: "not-found" }),
+    // Rota curinga: qualquer URL que não exista cai aqui (sem ela, o React Router troca a página por um "404 Not Found" seco depois de carregar).
+    // O prerender de "/404" (react-router.config.ts) vira build/client/404.html no postbuild, que é o que o GitHub Pages serve para URLs inexistentes.
+    route("*", "routes/not-found.tsx", { id: "not-found" }),
   ]),
 ] satisfies RouteConfig;
