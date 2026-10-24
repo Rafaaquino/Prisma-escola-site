@@ -1,0 +1,84 @@
+name: Verificar site
+
+# VERIFICAÇÃO AUTOMÁTICA a cada push na main e em pull requests: typecheck, build e as checagens de URLs e de SEO.
+# Se algo do site antigo sumir, um redirecionamento quebrar, um link ficar quebrado ou o JSON-LD ficar inválido, a execução fica vermelha.
+#
+# COMO O SITE É PUBLICADO (padrão): pelo seu computador, com `npm run deploy` (branch gh-pages; veja o README).
+#   No GitHub: Settings → Pages → Source: "Deploy from a branch" → gh-pages / (root).
+#
+# ALTERNATIVA (publicar por este workflow, sem usar o seu computador): crie a variável de repositório DEPLOY_VIA_ACTIONS = true
+#   e em Settings → Pages escolha Source: "GitHub Actions". Escolha UMA das duas formas, nunca as duas ao mesmo tempo.
+#   Nessa forma a configuração vem das variáveis do repositório (Settings → Secrets and variables → Actions → Variables):
+#     ALLOW_INDEXING = true                          libera a indexação (e liga o aviso de cookies/Google/Meta)
+#     SITE_URL       = https://www.prismaescola.com.br
+#     WEB3FORMS_KEY  = (chave de acesso do Web3Forms; é pública por natureza)
+#     META_PIXEL_ID  = (ID do Pixel da Meta, quando existir)
+#     BASE_PATH      = (só para revisão em usuario.github.io/repositorio: /repositorio/)
+# Passo a passo completo e o cuidado com o e-mail (MX) na HostGator: docs/plano-implementacao.md §8 e README.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      VITE_SITE_URL: ${{ vars.SITE_URL || 'https://www.prismaescola.com.br' }}
+      VITE_ALLOW_INDEXING: ${{ vars.ALLOW_INDEXING }}
+      BASE_PATH: ${{ vars.BASE_PATH }}
+      VITE_WEB3FORMS_KEY: ${{ vars.WEB3FORMS_KEY }}
+      VITE_META_PIXEL_ID: ${{ vars.META_PIXEL_ID }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Conferir tipos
+        run: npm run typecheck
+
+      - name: Gerar o site
+        run: npm run build
+
+      # Falha se alguma URL do site antigo sumir, se um redirecionamento quebrar ou se o sitemap/robots estiverem errados.
+      - name: Conferir URLs, redirecionamentos, robots.txt e sitemap.xml
+        run: npm run check:urls
+
+      # Falha se uma página perder título/descrição/canonical/h1, se o JSON-LD quebrar ou se houver link interno quebrado.
+      - name: Revisão de SEO (títulos, descrições, dados estruturados, links)
+        run: npm run check:seo
+
+      - uses: actions/configure-pages@v6
+        if: ${{ vars.DEPLOY_VIA_ACTIONS == 'true' }}
+
+      - uses: actions/upload-pages-artifact@v5
+        if: ${{ vars.DEPLOY_VIA_ACTIONS == 'true' }}
+        with:
+          path: build/client
+
+  deploy:
+    needs: build
+    if: ${{ vars.DEPLOY_VIA_ACTIONS == 'true' && github.event_name != 'pull_request' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

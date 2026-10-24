@@ -1,0 +1,141 @@
+{
+  "_sobre": "URLs do site ANTERIOR ao WordPress (.htm/.html/.asp) que redirecionam para a página equivalente. O GitHub Pages não faz 301, então o postbuild gera uma página estática em cada caminho com <meta http-equiv=refresh> + <link rel=canonical> para o destino. Só redirecionamos quando existe equivalente claro; sem equivalente, deixa 404 (mandar tudo para a home o Google trata como soft 404). 'why' registra a evidência (capturas do Wayback Machine).",
+  "redirects": [
+    {
+      "from": "/quem_somos.html",
+      "to": "/historia/",
+      "why": "nome; em 2016 já era página 404"
+    },
+    {
+      "from": "/prisma.htm",
+      "to": "/historia/",
+      "why": "captura de 2006: texto da história da escola"
+    },
+    {
+      "from": "/fundamental1.html",
+      "to": "/ensino-fundamental-1/",
+      "why": "nome; em 2016 já era página 404"
+    },
+    {
+      "from": "/fundamental2.html",
+      "to": "/ensino-fundamental-2/",
+      "why": "nome; em 2016 já era página 404"
+    },
+    {
+      "from": "/unidade_maraca.html",
+      "to": "/unidade-1-jd-maraca/",
+      "why": "nome; em 2016 já era página 404"
+    },
+    {
+      "from": "/unidade_lilah.html",
+      "to": "/unidade-2-jd-lilah/",
+      "why": "nome; em 2016 já era página 404"
+    },
+    {
+      "from": "/galeria_maraca.html",
+      "to": "/unidade-1-jd-maraca/",
+      "why": "as galerias de fotos ficam na página da unidade"
+    },
+    {
+      "from": "/galeria_lilah.html",
+      "to": "/unidade-2-jd-lilah/",
+      "why": "as galerias de fotos ficam na página da unidade"
+    },
+    {
+      "from": "/infra_estrutura.html",
+      "to": "/infraestrutura/",
+      "why": "nome; em 2016 já era página 404"
+    },
+    {
+      "from": "/instal.htm",
+      "to": "/infraestrutura/",
+      "why": "captura de 2006: 'instalações modernas e confortáveis'"
+    },
+    {
+      "from": "/matriculas.html",
+      "to": "/matriculas/",
+      "why": "nome; em 2016 já era página 404"
+    },
+    {
+      "from": "/secretaria.htm",
+      "to": "/matriculas/",
+      "why": "captura de 2006: turnos e horários, que hoje estão em Matrículas"
+    },
+    {
+      "from": "/proposta.htm",
+      "to": "/proposta-pedagogica/",
+      "why": "captura de 2006: proposta pedagógica"
+    },
+    {
+      "from": "/proposta_pedagogica.html",
+      "to": "/proposta-pedagogica/",
+      "why": "nome; em 2016 já era página 404"
+    },
+    {
+      "from": "/contato.htm",
+      "to": "/contato/",
+      "why": "captura de 2006: meios de contato"
+    },
+    {
+      "from": "/fale_conosco.html",
+      "to": "/contato/",
+      "why": "nome; em 2016 já era página 404"
+    },
+    {
+      "from": "/trabalhe_conosco.html",
+      "to": "/trabalhe-conosco/",
+      "why": "nome; em 2016 já era página 404"
+    },
+    {
+      "from": "/atividades.htm",
+      "to": "/extra-curriculares/",
+      "why": "captura de 2006: espanhol, inglês, informática, banda, passeios = atividades extracurriculares"
+    },
+    {
+      "from": "/atividades.html",
+      "to": "/atividades/",
+      "why": "mesmo nome; em 2016 já era página 404"
+    },
+    {
+      "from": "/default.htm",
+      "to": "/",
+      "why": "página inicial do site antigo (/index.html já é servido pelo próprio index.html, com canonical para /)"
+    },
+    {
+      "from": "/agenda/",
+      "to": "/atividades/",
+      "why": "a agenda de 2020 foi cancelada (Covid) e a página só dizia isso; a página mais próxima é Atividades"
+    },
+    {
+      "from": "/agenda-prisma/",
+      "to": "/atividades/",
+      "why": "página vazia que era só um item de menu (Agenda Prisma → Atividades)"
+    }
+  ],
+  "leave404": [
+    {
+      "path": "/arquivos.html",
+      "why": "em 2016 já era página 404; sem equivalente"
+    },
+    {
+      "path": "/banner/banner.html",
+      "why": "peça de banner vazia, não era uma página"
+    },
+    {
+      "path": "/linksiteresante.asp",
+      "why": "'Links interessantes' de 2009; sem equivalente"
+    },
+    {
+      "path": "/noticialista.asp",
+      "why": "lista de notícias ('Nenhuma notícia'); o site novo não tem notícias"
+    },
+    {
+      "path": "/pagmeio2.asp",
+      "why": "fragmento vazio de layout, não era uma página"
+    },
+    {
+      "path": "/transporte.html",
+      "why": "em 2016 já era página 404; não há página de transporte hoje"
+    }
+  ]
+}

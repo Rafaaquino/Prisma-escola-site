@@ -1,0 +1,235 @@
+{
+  "_sobre": "Régua do check de URLs (scripts/check-urls.mjs). Gerado a partir do backup .wpress (out/2026), do índice do Yoast e do Wayback CDX. NÃO é derivado do código do site, de propósito: assim o teste é independente.",
+  "keep": [
+    {
+      "path": "/",
+      "title": "HOME",
+      "lastEdited": "2026-09-21"
+    },
+    {
+      "path": "/area-dos-professores/",
+      "title": "ÁREA DOS PROFESSORES",
+      "lastEdited": "2023-09-06"
+    },
+    {
+      "path": "/atividades/",
+      "title": "ATIVIDADES",
+      "lastEdited": "2017-09-22"
+    },
+    {
+      "path": "/contato/",
+      "title": "CONTATO",
+      "lastEdited": "2023-09-05"
+    },
+    {
+      "path": "/diferenciais-da-escola-adventista/",
+      "title": "DIFERENCIAIS DA ESCOLA ADVENTISTA",
+      "lastEdited": "2016-10-19"
+    },
+    {
+      "path": "/educacao-infantil/",
+      "title": "EDUCAÇÃO INFANTIL",
+      "lastEdited": "2025-09-16"
+    },
+    {
+      "path": "/ensino-fundamental-1/",
+      "title": "ENSINO FUNDAMENTAL - ANOS INICIAIS",
+      "lastEdited": "2025-11-10"
+    },
+    {
+      "path": "/ensino-fundamental-2/",
+      "title": "ENSINO FUNDAMENTAL - ANOS FINAIS",
+      "lastEdited": "2025-11-10"
+    },
+    {
+      "path": "/ensino/",
+      "title": "ENSINO",
+      "lastEdited": "2016-10-19"
+    },
+    {
+      "path": "/extra-curriculares/",
+      "title": "EXTRA CURRICULARES",
+      "lastEdited": "2025-09-16"
+    },
+    {
+      "path": "/historia/",
+      "title": "HISTÓRIA",
+      "lastEdited": "2023-09-06"
+    },
+    {
+      "path": "/infraestrutura/",
+      "title": "INFRAESTRUTURA",
+      "lastEdited": "2023-09-06"
+    },
+    {
+      "path": "/ingles/",
+      "title": "INGLÊS",
+      "lastEdited": "2025-09-16"
+    },
+    {
+      "path": "/institucional/",
+      "title": "INSTITUCIONAL",
+      "lastEdited": "2016-10-19"
+    },
+    {
+      "path": "/integral-semi-integral/",
+      "title": "INTEGRAL / SEMI-INTEGRAL",
+      "lastEdited": "2025-11-10"
+    },
+    {
+      "path": "/itagyba/",
+      "title": "ITAGYBA",
+      "lastEdited": "2024-12-09"
+    },
+    {
+      "path": "/laboratorio-de-inteligencia-artificial/",
+      "title": "Laboratório de Inteligência Artificial",
+      "lastEdited": "2026-09-21"
+    },
+    {
+      "path": "/matriculas/",
+      "title": "MATRÍCULAS",
+      "lastEdited": "2025-11-10"
+    },
+    {
+      "path": "/missao-visao-valores/",
+      "title": "MISSÃO VISÃO VALORES",
+      "lastEdited": "2016-10-19"
+    },
+    {
+      "path": "/pensamento-computacional/",
+      "title": "COMPUTATIONAL WORLD - MUNDO COMPUTACIONAL",
+      "lastEdited": "2025-11-10"
+    },
+    {
+      "path": "/proposta-pedagogica/",
+      "title": "PROPOSTA PEDAGÓGICA",
+      "lastEdited": "2019-05-08"
+    },
+    {
+      "path": "/trabalhe-conosco/",
+      "title": "TRABALHE CONOSCO",
+      "lastEdited": "2016-10-19"
+    },
+    {
+      "path": "/unidade-1-jd-maraca/",
+      "title": "UNIDADE 1- JD MARACÁ",
+      "lastEdited": "2025-09-16"
+    },
+    {
+      "path": "/unidade-2-jd-lilah/",
+      "title": "UNIDADE 2 - JD LILAH",
+      "lastEdited": "2023-09-05"
+    },
+    {
+      "path": "/unidades/",
+      "title": "UNIDADES",
+      "lastEdited": "2016-09-17"
+    },
+    {
+      "path": "/vem-pra-prisma/",
+      "title": "VEM SER PRISMA!",
+      "lastEdited": "2025-11-10"
+    },
+    {
+      "path": "/video-aulas/",
+      "title": "Video Aulas",
+      "lastEdited": "2017-09-22"
+    }
+  ],
+  "drop": [
+    {
+      "path": "/aliquam-erat-volutpat-2/",
+      "reason": "post de exemplo (lorem ipsum) do tema; o site não tem blog"
+    },
+    {
+      "path": "/aliquam-erat-volutpat/",
+      "reason": "post de exemplo (lorem ipsum) do tema; o site não tem blog"
+    },
+    {
+      "path": "/deleniti-nam-porro-quisquam-ab-temporibus-2/",
+      "reason": "post de exemplo (lorem ipsum) do tema; o site não tem blog"
+    },
+    {
+      "path": "/etiam-laoreet-sem-eget-eros-rhoncus-2/",
+      "reason": "post de exemplo (lorem ipsum) do tema; o site não tem blog"
+    },
+    {
+      "path": "/etiam-laoreet-sem-eget-eros-rhoncus-3/",
+      "reason": "post de exemplo (lorem ipsum) do tema; o site não tem blog"
+    },
+    {
+      "path": "/etiam-laoreet-sem-eget-eros-rhoncus-4/",
+      "reason": "post de exemplo (lorem ipsum) do tema; o site não tem blog"
+    },
+    {
+      "path": "/etiam-laoreet-sem-eget-eros-rhoncus-5/",
+      "reason": "post de exemplo (lorem ipsum) do tema; o site não tem blog"
+    },
+    {
+      "path": "/etiam-laoreet-sem-eget-eros-rhoncus/",
+      "reason": "post de exemplo (lorem ipsum) do tema; o site não tem blog"
+    },
+    {
+      "path": "/ola-mundo/",
+      "reason": "post de exemplo (lorem ipsum) do tema; o site não tem blog"
+    },
+    {
+      "path": "/sed-elementum-massa-volutpat/",
+      "reason": "post de exemplo (lorem ipsum) do tema; o site não tem blog"
+    },
+    {
+      "path": "/shortcodes/",
+      "reason": "sobra do demo do tema Porto (página de exemplo)"
+    },
+    {
+      "path": "/teste/",
+      "reason": "página de teste de 2020"
+    },
+    {
+      "path": "/vem-pra-prisma-2/",
+      "reason": "duplicata em branco de /vem-pra-prisma/"
+    }
+  ],
+  "dropPatterns": [
+    "/category/*",
+    "/tag/*",
+    "/author/*",
+    "/AAAA/MM/ (arquivos por data)",
+    "*/embed/ (oEmbed do WordPress)"
+  ],
+  "newUrls": [
+    "/politica-de-privacidade/"
+  ],
+  "preWordpressHtml": [
+    "/arquivos.html",
+    "/atividades.htm",
+    "/atividades.html",
+    "/banner/banner.html",
+    "/contato.htm",
+    "/fale_conosco.html",
+    "/fundamental1.html",
+    "/fundamental2.html",
+    "/galeria_lilah.html",
+    "/galeria_maraca.html",
+    "/infra_estrutura.html",
+    "/instal.htm",
+    "/linksiteresante.asp",
+    "/matriculas.html",
+    "/noticialista.asp",
+    "/pagmeio2.asp",
+    "/prisma.htm",
+    "/proposta.htm",
+    "/proposta_pedagogica.html",
+    "/quem_somos.html",
+    "/secretaria.htm",
+    "/trabalhe_conosco.html",
+    "/transporte.html",
+    "/unidade_lilah.html",
+    "/unidade_maraca.html"
+  ],
+  "movedToRedirect": [
+    "/agenda/",
+    "/agenda-prisma/"
+  ]
+}

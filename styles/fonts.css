@@ -1,0 +1,25 @@
+/* Mesmas fontes do template Ascent (Jost, Nunito, Bubblegum Sans), agora hospedadas aqui em vez do Google Fonts.
+   Subset latin (cobre todo o português). Licença OFL: ver ../webfonts/LICENSE-*.txt */
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../webfonts/jost-latin-wght-normal.woff2") format("woff2-variations");
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url("../webfonts/nunito-latin-wght-normal.woff2") format("woff2-variations");
+}
+
+@font-face {
+  font-family: "Bubblegum Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../webfonts/bubblegum-sans-latin-400-normal.woff2") format("woff2");
+}

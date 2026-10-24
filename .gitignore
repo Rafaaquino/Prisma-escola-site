@@ -1,0 +1,27 @@
+# dependências e saída de build
+node_modules/
+build/
+.react-router/
+dist/
+
+# gerado por scripts/build-css.mjs a partir de styles/ (o `npm run build` recria)
+public/assets/css/
+
+# NUNCA versionar: o repositório do GitHub Pages é público
+*.wpress
+*.sql
+backup/
+referencias/
+.env
+.env.*
+!.env.example
+
+# sistema / editor
+.DS_Store
+Thumbs.db
+*.log
+.vscode/*
+!.vscode/extensions.json
+
+# fontes do Font Awesome recortadas por scripts/build-css.mjs (só os ícones usados)
+public/assets/webfonts/fa-*.woff2
