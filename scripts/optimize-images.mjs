@@ -3,7 +3,7 @@
 // Uso:  node scripts/optimize-images.mjs            -> gera .webp ao lado de cada .png/.jpg
 //       node scripts/optimize-images.mjs --remove   -> idem e apaga os originais convertidos
 //
-// Ficam como PNG de propósito: o favicon e o apple-touch-icon (navegadores e iOS esperam PNG).
+// Ficam como PNG de propósito: o favicon e o apple-touch-icon (navegadores e iOS esperam PNG). A logo e esses ícones saem de scripts/make-logo.mjs.
 // Depois de converter, troque a extensão nas referências (src/**/*.tsx e CSS) para .webp.
 import { existsSync, readdirSync, rmSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
@@ -11,7 +11,7 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 const root = fileURLToPath(new URL("../public/assets/img", import.meta.url));
-const KEEP = new Set(["faveicon.png", "apple-touch-icon.png"]);
+const KEEP = new Set(["apple-touch-icon.png", "favicon-96.png"]);
 const remove = process.argv.includes("--remove");
 
 const files = [];

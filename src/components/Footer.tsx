@@ -137,7 +137,7 @@ export function Footer({ variant }: { variant: "light" | "dark" }) {
               <div className="single-footer-widget">
                 <div className="widget-heads">
                   <Link to="/" className="footer-logo" aria-label="Prisma Escola — página inicial">
-                    <Img src={dark ? "logo/logo-light.webp" : "logo/logo.webp"} alt="Prisma Escola" width={64} height={64} />
+                    <Img src="logo/logo.webp" alt="Prisma Escola" width={64} height={64} />
                   </Link>
                 </div>
                 <div className="footer-content">

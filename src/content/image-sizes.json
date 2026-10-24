@@ -30,7 +30,7 @@
   "aicon/icon4.webp": [40,40],
   "ainspair/inspair-bg.webp": [1920,517],
   "ainspair/inspair-thumb.webp": [589,555],
-  "apple-touch-icon.png": [181,181],
+  "apple-touch-icon.png": [180,180],
   "aservices/details-big1.webp": [1290,567],
   "aservices/details-middle1.webp": [410,242],
   "aservices/details-middle2.webp": [410,242],
@@ -46,7 +46,6 @@
   "contact/contact-b1.webp": [464,539],
   "contact/contact-badge.webp": [65,65],
   "contact/contact-s1.webp": [241,241],
-  "faveicon.png": [65,65],
   "favicon-96.png": [96,96],
   "footer/f-apple.webp": [99,99],
   "footer/f-cut.webp": [73,73],
@@ -79,7 +78,6 @@
   "infra/sala-dos-professores.webp": [600,554],
   "infra/sala-maternal-maraca.webp": [800,576],
   "infra/sala-professora-quadro.webp": [820,1204],
-  "logo/logo-light.webp": [129,129],
-  "logo/logo.webp": [129,129],
+  "logo/logo.webp": [256,256],
   "og-prisma-escola.jpg": [1200,630]
 }

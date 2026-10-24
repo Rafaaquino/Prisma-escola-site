@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { PageBanner } from "../components/PageBanner";
 import { StaySection } from "../components/StaySection";
-import { EMAIL, UNITS } from "../content/site";
+import { EMAIL, EMPRESA, ENCARREGADO, UNITS } from "../content/site";
 import { buildMeta } from "../lib/seo";
 
 export function meta() {
@@ -43,7 +43,8 @@ const ext = (href: string, label: string) => (
 
 // RASCUNHO: texto-base alinhado à LGPD (Lei nº 13.709/2018). A seção de cookies descreve o funcionamento com AVISO DE COOKIES e consentimento
 // prévio (Google Analytics e Pixel da Meta só carregam depois do "aceitar"): o site precisa implementar esse aviso antes de ativar as ferramentas.
-// Antes de publicar, a escola deve completar razão social/CNPJ e a indicação do encarregado de dados, e revisar o texto com assessoria jurídica.
+// Razão social e CNPJ (conferidos na Receita) e o encarregado de dados (WA Coders) já constam, vindos de src/content/site.ts.
+// Antes de publicar, a escola deve formalizar a indicação do encarregado e revisar o texto com assessoria jurídica.
 export default function PoliticaDePrivacidade() {
   return (
     <>
@@ -51,11 +52,12 @@ export default function PoliticaDePrivacidade() {
       <section className="service-dtails overflow-hidden section-padding position-relative">
         <div className="container">
           <div className="common-content-box">
-            <p className="pra mb-30">Última atualização: 23 de outubro de 2026.</p>
+            <p className="pra mb-30">Última atualização: 24 de outubro de 2026.</p>
 
             <Section title="1. Quem somos">
               <p className="pra mb-30">
-                Este site é mantido pela Prisma Escola (“Prisma”, “nós”), com unidades em {UNITS[0].address} ({UNITS[0].short}) e {UNITS[1].address} ({UNITS[1].short}).
+                Este site é mantido pela <strong>{EMPRESA.razaoSocial}</strong> (nome fantasia {EMPRESA.nomeFantasia}; “Prisma”, “nós”), inscrita no CNPJ sob o nº {EMPRESA.cnpj}, com
+                unidades em {UNITS[0].address} ({UNITS[0].short}) e {UNITS[1].address} ({UNITS[1].short}). Somos a controladora dos dados pessoais tratados neste site.
                 Esta política explica como tratamos os dados pessoais de quem usa o site, de acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018, LGPD).
               </p>
             </Section>
@@ -174,6 +176,9 @@ export default function PoliticaDePrivacidade() {
                   "a revogação do consentimento, quando o tratamento se basear nele.",
                 ]}
               />
+              <p className="pra mb-30">
+                Para fazer qualquer um desses pedidos, fale com o nosso encarregado pelo tratamento de dados pessoais (veja a seção 12).
+              </p>
             </Section>
 
             <Section title="9. Crianças e adolescentes">
@@ -197,7 +202,11 @@ export default function PoliticaDePrivacidade() {
 
             <Section title="12. Fale com a gente">
               <p className="pra mb-30">
-                Para exercer seus direitos ou tirar dúvidas sobre esta política, escreva para <a href={`mailto:${EMAIL}`}>{EMAIL}</a> ou ligue para a unidade Maracá,{" "}
+                <strong>Encarregado pelo tratamento de dados pessoais:</strong> {ENCARREGADO.nome}, pelo e-mail <a href={`mailto:${ENCARREGADO.email}`}>{ENCARREGADO.email}</a>.
+                É com ele que você exerce seus direitos e tira dúvidas sobre esta política.
+              </p>
+              <p className="pra mb-30">
+                Você também pode falar com a escola pelo e-mail <a href={`mailto:${EMAIL}`}>{EMAIL}</a> ou ligar para a unidade Maracá,{" "}
                 <a href={`tel:${UNITS[0].tel}`}>{UNITS[0].phone}</a>, ou para a unidade Lilah, <a href={`tel:${UNITS[1].tel}`}>{UNITS[1].phone}</a>.
               </p>
             </Section>

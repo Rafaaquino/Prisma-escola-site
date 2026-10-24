@@ -1,6 +1,6 @@
 import { isValidElement, type ReactNode } from "react";
 import { NAV } from "../content/nav";
-import { EMAIL, HOURS, SOCIAL, UNITS, WHATSAPP_MATRICULAS, type Unit } from "../content/site";
+import { EMAIL, EMPRESA, HOURS, SOCIAL, UNITS, WHATSAPP_MATRICULAS, type Unit } from "../content/site";
 import { SITE_NAME, SITE_URL } from "./site";
 
 /**
@@ -20,7 +20,7 @@ const unitId = (u: Unit) => abs(`${u.path}#escola`);
 /** Imagem padrão de compartilhamento (WhatsApp, Facebook, Google): scripts/make-og-image.mjs. */
 export const OG_IMAGE = { url: abs("/assets/img/og-prisma-escola.jpg"), width: 1200, height: 630, alt: "Alunos da Prisma Escola no espaço de brincar" };
 
-const LOGO = { "@type": "ImageObject", url: abs("/assets/img/logo/logo.webp"), width: 129, height: 129 };
+const LOGO = { "@type": "ImageObject", url: abs("/assets/img/logo/logo.webp"), width: 256, height: 256 };
 
 const mapsUrl = (u: Unit) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${u.address}, ${u.short}, São Paulo, SP`)}`;
 
@@ -30,6 +30,9 @@ export function organizationLd(): JsonLd {
     "@type": "EducationalOrganization",
     "@id": ORG_ID,
     name: SITE_NAME,
+    alternateName: EMPRESA.nomeFantasia,
+    legalName: EMPRESA.razaoSocial,
+    taxID: EMPRESA.cnpj,
     url: abs("/"),
     description: "Escola de Educação Infantil e Ensino Fundamental I e II, com período integral, nas unidades Jd. Maracá e Jd. Lilah, em São Paulo.",
     foundingDate: "1989",

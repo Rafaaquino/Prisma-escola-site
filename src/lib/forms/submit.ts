@@ -35,7 +35,9 @@ export async function submitForm(payload: FormPayload): Promise<SubmitResult> {
     });
     const data = (await res.json().catch(() => null)) as { success?: boolean; message?: string } | null;
     if (res.ok && data?.success) return { ok: true };
-    return { ok: false, error: data?.message ?? "Não foi possível enviar agora. Tente novamente em instantes." };
+    // o motivo técnico (em inglês, vindo do serviço) fica só no console: o visitante vê uma mensagem em português
+    console.error("Web3Forms recusou o envio:", res.status, data?.message);
+    return { ok: false, error: "Não foi possível enviar agora. Tente novamente em instantes ou chame a escola no WhatsApp." };
   } catch {
     return { ok: false, error: "Sem conexão. Tente novamente ou chame a escola no WhatsApp." };
   }

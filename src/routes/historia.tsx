@@ -101,7 +101,7 @@ export default function Historia() {
           {
             icon: "aservices/sertd1.webp",
             title: "1993: sede própria e nova unidade",
-            text: "Estabelece-se em sede própria na Av. Atos Tomás Ferraciu, 25, no Jd. Maracá, uma localização estratégica e privilegiada, e inaugura uma filial no Jd. Lilah.",
+            text: "Estabelece-se em sede própria na Av. Atos Tomás Ferracciu, 25, no Jd. Maracá, uma localização estratégica e privilegiada, e inaugura uma filial no Jd. Lilah.",
           },
           {
             icon: "aicon/car-icons5.webp",

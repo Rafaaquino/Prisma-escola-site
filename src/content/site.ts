@@ -16,7 +16,7 @@ export interface Unit {
   whatsapp: string;
   /** Caminho da página da unidade (mesmo slug do WordPress). */
   path: string;
-  /** CEP, só quando conferido em fonte pública (alimenta os dados estruturados do Google; sem ele o campo é omitido). */
+  /** CEP conferido no cadastro de CNPJ da Receita Federal (alimenta os dados estruturados do Google; sem ele o campo é omitido). */
   postalCode?: string;
 }
 
@@ -25,11 +25,12 @@ export const UNITS: Unit[] = [
     id: "maraca",
     name: "Unidade Maracá",
     short: "Jd. Maracá",
-    address: "Av. Atos Tomás Ferraciu, 25",
+    address: "Av. Atos Tomás Ferracciu, 25",
     phone: "(11) 5873-7688",
     tel: "+551158737688",
     whatsapp: "https://wa.me/551158737688?text=Ol%C3%A1%2C%20desejo%20receber%20informa%C3%A7%C3%B5es%21",
     path: "/unidade-1-jd-maraca/",
+    postalCode: "05861-020",
   },
   {
     id: "lilah",
@@ -43,6 +44,19 @@ export const UNITS: Unit[] = [
     postalCode: "05885-190",
   },
 ];
+
+/**
+ * Pessoa jurídica responsável pelo site (controladora dos dados, para a LGPD). Conferido no cadastro da Receita Federal em 24/10/2026:
+ * situação ATIVA, início das atividades em 04/12/1989; matriz = Unidade Maracá (CNPJ final /0001-30) e filial = Unidade Lilah (/0002-10).
+ */
+export const EMPRESA = {
+  razaoSocial: "Prisma Escola de Educação Integral LTDA",
+  nomeFantasia: "Escola Prisma",
+  cnpj: "61.579.793/0001-30",
+};
+
+/** Encarregado pelo tratamento de dados pessoais (DPO, LGPD art. 41): a identidade e o contato precisam ser públicos (Política de Privacidade). */
+export const ENCARREGADO = { nome: "WA Coders", email: "contact@wacoders.com" };
 
 /** WhatsApp central de matrículas (ícone flutuante e botões "Matrículas 2027"): +55 11 99252-0541, só dígitos, como o wa.me pede. */
 export const WHATSAPP_MATRICULAS = "5511992520541";
