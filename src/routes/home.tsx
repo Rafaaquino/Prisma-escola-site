@@ -5,8 +5,9 @@ import { FaqAccordion, type FaqItem } from "../components/FaqAccordion";
 import { PortfolioTabs, type GalleryTab } from "../components/PortfolioTabs";
 import { ServiceSlider, type ServiceSlide } from "../components/ServiceSlider";
 import { TestimonialSection } from "../components/TestimonialSection";
+import { TourFacade } from "../components/TourFacade";
 import { openWhatsAppForm } from "../components/WhatsAppWidget";
-import { UNITS } from "../content/site";
+import { TOUR_URL, UNITS } from "../content/site";
 import { faqLd, organizationLd, unitLd, websiteLd } from "../lib/jsonld";
 import { buildMeta } from "../lib/seo";
 import { Img } from "../components/Img";
@@ -376,6 +377,36 @@ export default function Home() {
             </div>
           </div>
           <PortfolioTabs tabs={TABS} />
+        </div>
+      </section>
+
+      {/* Tour Section Start (visita virtual 360°: só carrega depois do clique) */}
+      <section className="tour-section overflow-hidden space-bottom">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-7">
+              <div className="section-title text-center mb-40">
+                <span className="sub-title wow fadeInUp p4-clr">Visita virtual</span>
+                <h3 className="m-title wow fadeInUp black mb-sm-3 mb-2" data-wow-delay=".3s">
+                  Passeie pela escola sem sair de casa
+                </h3>
+                <p className="wow fadeInUp" data-wow-delay=".4s">
+                  Navegue em 360° pelas salas, pátios e quadras das nossas unidades e veja de perto o ambiente onde seu filho vai aprender.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="wow fadeInUp" data-wow-delay=".4s">
+            <TourFacade />
+          </div>
+          <div className="text-center mt-4">
+            <a href={TOUR_URL} className="theme-btn p4-bg" target="_blank" rel="noopener noreferrer">
+              <span className="white fw-medium">
+                Abrir em tela cheia
+                <span className="visually-hidden"> (abre em nova aba)</span>
+              </span>
+            </a>
+          </div>
         </div>
       </section>
 

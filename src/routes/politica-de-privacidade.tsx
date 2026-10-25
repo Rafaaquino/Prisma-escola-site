@@ -52,7 +52,7 @@ export default function PoliticaDePrivacidade() {
       <section className="service-dtails overflow-hidden section-padding position-relative">
         <div className="container">
           <div className="common-content-box">
-            <p className="pra mb-30">Última atualização: 24 de outubro de 2026.</p>
+            <p className="pra mb-30">Última atualização: 25 de outubro de 2026.</p>
 
             <Section title="1. Quem somos">
               <p className="pra mb-30">
@@ -149,7 +149,8 @@ export default function PoliticaDePrivacidade() {
                   "YouTube (Google): os vídeos só são carregados quando você clica em reproduzir, no modo de privacidade ampliada. A partir daí, valem as regras do YouTube.",
                   "Meta (Pixel do Facebook e do Instagram, com consentimento): recebe informações sobre as suas ações no site e pode utilizá-las conforme a política da Meta.",
                   "WhatsApp (Meta): ao concluir o questionário, a conversa passa a acontecer no WhatsApp e segue os termos e a política de privacidade dele.",
-                  "Links para sites de terceiros (tour virtual 360°, sistema escolar, Livraria Itagyba e redes sociais) têm políticas de privacidade próprias.",
+                  "Vila 360 (visita virtual 360°): na página inicial, a visita só é carregada quando você clica em iniciar. A partir daí, valem as regras do Vila 360.",
+                  "Links para sites de terceiros (sistema escolar, Livraria Itagyba e redes sociais) têm políticas de privacidade próprias.",
                 ]}
               />
               <p className="pra mb-30">

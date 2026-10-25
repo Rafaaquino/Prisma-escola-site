@@ -488,3 +488,80 @@ button[disabled] {
     font-size: 44px;
   }
 }
+
+/* visita virtual 360° da home: 4:3 no celular (o tour precisa de altura) e 16:9 daí em diante; só carrega depois do clique.
+   O botão e o iframe já são posicionados pelo `.ratio` do Bootstrap (filhos diretos). */
+.tour-frame {
+  --bs-aspect-ratio: 75%;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .tour-frame {
+    --bs-aspect-ratio: 56.25%;
+  }
+}
+
+.tour-facade {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: var(--p1-clr, #0a6375);
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.tour-facade img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tour-facade::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10, 99, 117, 0.8), rgba(10, 99, 117, 0.3));
+}
+
+.tour-facade-content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 16px;
+}
+
+.tour-facade-content i {
+  font-size: 72px;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.tour-facade-content span {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.tour-facade:hover .tour-facade-content i,
+.tour-facade:focus-visible .tour-facade-content i {
+  transform: scale(1.12);
+}
+
+@media (max-width: 575px) {
+  .tour-facade-content i {
+    font-size: 56px;
+  }
+
+  .tour-facade-content span {
+    font-size: 18px;
+  }
+}
