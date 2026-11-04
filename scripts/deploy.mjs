@@ -4,6 +4,10 @@
 //                                      com noindex, robots.txt bloqueando tudo e SEM rastreamento (para a escola conferir)
 //   npm run deploy -- --producao       MODO PRODUÇÃO: domínio próprio (www.prismaescola.com.br), indexação liberada,
 //                                      grava o arquivo CNAME. Só use depois de o DNS estar pronto (docs/plano-implementacao.md §8)
+//                                      TRAVA: se a gh-pages já tem o CNAME (site em produção), este modo se recusa a rodar, porque
+//                                      apagaria o domínio das configurações do Pages e publicaria uma versão que quebra no domínio próprio.
+//                                      Depois do lançamento, use sempre `npm run deploy:producao`.
+//   npm run deploy -- --revisao        ignora a trava acima e publica a REVISÃO mesmo com o CNAME no ar (derruba o domínio próprio!)
 //   npm run deploy -- --simular        faz tudo (build, checagens, commit temporário) e um `git push --dry-run`: NADA é publicado
 //   npm run deploy -- --sem-checagens  pula check:urls e check:seo (não recomendado)
 //   npm run deploy -- --sim            não pede confirmação no modo produção
@@ -26,6 +30,7 @@ const PRODUCAO = flags.has("--producao");
 const SIMULAR = flags.has("--simular");
 const SEM_CHECAGENS = flags.has("--sem-checagens");
 const SIM = flags.has("--sim");
+const FORCAR_REVISAO = flags.has("--revisao");
 const DOMINIO = process.env.DEPLOY_DOMAIN ?? "www.prismaescola.com.br";
 const BRANCH = "gh-pages";
 
@@ -69,13 +74,26 @@ console.log(`Modo: ${PRODUCAO ? "PRODUÇÃO (indexação liberada, domínio " + 
 console.log(`Destino: ${remoteUrl} → branch ${BRANCH}`);
 console.log(`Endereço do site: ${siteUrl}`);
 
+// ---- trava de segurança: depois do lançamento a gh-pages tem o arquivo CNAME. Um deploy de REVISÃO por cima publicaria o build com
+// caminho /<repositorio>/, noindex e sem rastreamento no domínio próprio (o site quebraria) e ainda apagaria o domínio de Settings → Pages.
+if (!PRODUCAO && !FORCAR_REVISAO && gitTry(["fetch", "-q", "origin", BRANCH]) !== null) {
+  const cnameNoAr = gitTry(["show", "FETCH_HEAD:CNAME"]);
+  if (cnameNoAr) {
+    fail(
+      `A branch ${BRANCH} já tem o domínio ${cnameNoAr} (o site está em produção). Um deploy de revisão o derrubaria.\n` +
+        `  Para atualizar o site no ar, use:  npm run deploy:producao\n` +
+        `  (se quiser mesmo assim publicar a revisão: npm run deploy -- --revisao)`,
+    );
+  }
+}
+
 const sujo = git(["status", "--porcelain"]);
 if (sujo) console.log(`\n⚠ Há ${sujo.split("\n").length} arquivo(s) com alterações não commitadas. O deploy usa o que está no disco agora.`);
 
 if (PRODUCAO && !SIMULAR && !SIM) {
   if (!process.stdin.isTTY) fail("No modo produção é preciso confirmar. Rode num terminal, ou acrescente --sim.");
   const rl = createInterface({ input: process.stdin, output: process.stdout });
-  const resp = await rl.question(`\nIsto publica o site em PRODUÇÃO, com indexação liberada e CNAME ${DOMINIO}.\nO DNS já aponta para o GitHub Pages? Digite SIM para continuar: `);
+  const resp = await rl.question(`\nIsto publica o site em PRODUÇÃO, com indexação liberada e CNAME ${DOMINIO}.\nFaça isto no dia da virada do DNS (logo antes de apontá-lo para o GitHub Pages) e use sempre este modo daqui em diante.\nDigite SIM para continuar: `);
   rl.close();
   if (resp.trim().toUpperCase() !== "SIM") fail("Cancelado.");
 }

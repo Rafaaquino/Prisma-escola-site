@@ -236,7 +236,7 @@ export default function Home() {
                   </div>
                   <div className="content">
                     <h3>
-                      <Counter end={35} />+
+                      <Counter end={30} />+
                     </h3>
                     <p>Anos de história</p>
                   </div>
@@ -294,7 +294,7 @@ export default function Home() {
                   <div className="academy-box2 gra-border round10 wow fadeInUp" data-wow-delay="1600">
                     <div className="content">
                       <h3>
-                        <Counter end={35} />+
+                        <Counter end={30} />+
                       </h3>
                       <p>anos de experiência</p>
                     </div>
